@@ -36,4 +36,4 @@ CREATE DATABASE bookmark_manager;
 CREATE DATABASE bookmark_manager_test;
 ```
 
-To set up the for each databasetables, connect to d/base in `psql` and run the SQL scripts in the `db/migrations` folder in the order given.
+To set up the tables for each database, connect to d/base in `psql` and run the SQL scripts in the `db/migrations` folder in the order given.

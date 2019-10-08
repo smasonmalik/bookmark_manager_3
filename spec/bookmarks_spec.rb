@@ -1,4 +1,5 @@
 require 'bookmarks'
+require 'database_helpers'
 
 describe Bookmarks do
 
@@ -8,23 +9,29 @@ describe Bookmarks do
     it 'should return a list of bookmarks' do
       connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.bbc.co.uk/sport');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.miniclip.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('www.cartoonnetwork.co.uk');")
-  
+      Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
+      Bookmarks.create(url: 'www.miniclip.com', title: 'Miniclip')
+      Bookmarks.create(url: 'www.cartoonnetwork.co.uk', title: 'CN')
+
       bookmarks = Bookmarks.all
-      
-      expect(bookmarks).to include 'www.bbc.co.uk/sport'
-      expect(bookmarks).to include 'www.miniclip.com'
-      expect(bookmarks).to include 'www.cartoonnetwork.co.uk'
+
+      expect(bookmarks.length).to eq 3
+      expect(bookmarks.first).to be_a Bookmarks
+      # expect(bookmarks.first.id).to eq bookmarks.id
+      expect(bookmarks.first.title).to eq 'BBC Sport'
+      expect(bookmarks.first.url).to eq 'www.bbc.co.uk/sport'
     end
   end
 
   describe '#create' do
     it 'creates a new bookmark' do
-      Bookmarks.create(url: 'www.test.com')
+      bookmark = Bookmarks.create(url: 'www.test.com', title: 'Test')
+      persisted_data = persisted_data(id: bookmark.id)
 
-      expect(Bookmarks.all).to include 'www.test.com'
+      expect(bookmark).to be_a Bookmarks
+      expect(bookmark.id).to eq persisted_data.first['id']
+      expect(bookmark.title).to eq 'Test'
+      expect(bookmark.url).to eq 'www.test.com'
    end
   end
 end

@@ -1,22 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Desktop/Projects/bookmark_manager-nat/bookmark_manager/spec/bookmarks_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
+      "/Users/Nat/Projects/bookmark_manager/spec/bookmarks_spec.rb": [
         1,
         1,
         null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
         1,
         null,
         1,
@@ -25,20 +13,45 @@
         1,
         1,
         null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
         null,
         null,
         1,
         1,
         1,
+        1,
         null,
+        1,
+        1,
+        1,
         1,
         null,
         null,
         null
       ],
-      "/Users/student/Desktop/Projects/bookmark_manager-nat/bookmark_manager/spec/features/add_new_bookmark_spec.rb": [
+      "/Users/Nat/Projects/bookmark_manager/spec/database_helpers.rb": [
         1,
         null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/Nat/Projects/bookmark_manager/spec/features/add_new_bookmark_spec.rb": [
+        1,
+        null,
+        1,
         1,
         1,
         1,
@@ -48,7 +61,7 @@
         null,
         null
       ],
-      "/Users/student/Desktop/Projects/bookmark_manager-nat/bookmark_manager/spec/features/home_page_spec.rb": [
+      "/Users/Nat/Projects/bookmark_manager/spec/features/home_page_spec.rb": [
         null,
         null,
         1,
@@ -58,7 +71,7 @@
         null,
         null
       ],
-      "/Users/student/Desktop/Projects/bookmark_manager-nat/bookmark_manager/spec/features/view_bookmarks_spec.rb": [
+      "/Users/Nat/Projects/bookmark_manager/spec/features/view_bookmarks_spec.rb": [
         1,
         null,
         1,
@@ -76,6 +89,6 @@
         null
       ]
     },
-    "timestamp": 1570546025
+    "timestamp": 1570552158
   }
 }

@@ -6,9 +6,13 @@
   </head>
   <body>
     <ul>
-      <% @bookmarks.each do |website| %>
-        <li> <%= website %> </li>
+      <% @bookmarks.each do |bookmark| %>
+        <li>
+        <a href="<%= bookmark.url %>" >
+          <%= bookmark.title %>
+        </a>
       <% end %>
+    </li>
     </ul>
   </body>
 </html>
