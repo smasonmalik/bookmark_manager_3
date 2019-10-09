@@ -37,18 +37,12 @@ describe Bookmarks do
 
   describe '.delete' do
     it 'removes a user specified bookmark' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+
       bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
-      Bookmarks.create(url: 'www.miniclip.com', title: 'Miniclip')
 
-      bookmark = Bookmarks.delete(title: 'BBC Sport')
-      bookmarks = Bookmarks.all
+      Bookmarks.delete(id: bookmark.id)
 
-      expect(bookmarks.length).to eq 1
-      expect(bookmarks.first).to be_a Bookmarks
-      expect(bookmarks.first.id).to eq bookmark.id
-      expect(bookmarks.first.title).to eq 'Miniclip'
-      expect(bookmarks.first.url).to eq 'www.miniclip.com'
+      expect(Bookmarks.all.length).to eq 0
     end
   end
 end

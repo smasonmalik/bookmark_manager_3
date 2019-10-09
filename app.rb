@@ -3,6 +3,8 @@ require_relative './lib/bookmarks'
 
 class BookmarkManager < Sinatra::Base
 
+  enable :sessions, :method_override
+
   get '/' do
     "Bookmark Manager"
     # erb :index
@@ -13,8 +15,8 @@ class BookmarkManager < Sinatra::Base
     erb(:bookmarks)
   end
 
-  delete '/bookmarks' do
-    Bookmarks.delete(title: params[:title])
+  delete '/bookmarks/:id' do
+    Bookmarks.delete(id: params[:id])
     redirect '/bookmarks'
   end
 
