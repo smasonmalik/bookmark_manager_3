@@ -35,6 +35,14 @@ So that I can get rid of old bookmarks
 I would like to delete bookmarks in the Bookmark Manager
 ```
 
+## User Story 5
+
+```
+As a thick-fingered, clumsy user
+So that I can amend errors in my bookmarks
+I would like to update existing bookmarks in Bookmark Manager
+```
+
 #### Database Set Up
 
 1. Connect to `psql` and create `bookmark_manager` and `bookmark_manager_test` databases:

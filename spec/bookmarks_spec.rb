@@ -45,4 +45,29 @@ describe Bookmarks do
       expect(Bookmarks.all.length).to eq 0
     end
   end
+
+  describe '.update' do
+    it 'updates the bookmark with the new fields' do
+      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
+      update_bmark = Bookmarks.update(id: bookmark.id, url: 'www.sky.com', title: 'Sky')
+
+      expect(update_bmark).to be_a Bookmarks
+      expect(update_bmark.id).to eq bookmark.id
+      expect(update_bmark.title).to eq 'Sky'
+      expect(update_bmark.url).to eq 'www.sky.com'
+    end
+  end
+
+  describe '.find' do
+    it 'returns the required bookmark' do
+      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
+
+      result = Bookmarks.find(id: bookmark.id)
+
+      expect(result).to be_a Bookmarks
+      expect(result.id).to eq bookmark.id
+      expect(result.title).to eq 'BBC Sport'
+      expect(result.url).to eq 'www.bbc.co.uk/sport'
+    end
+  end
 end
