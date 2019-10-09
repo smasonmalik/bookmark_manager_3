@@ -27,6 +27,14 @@ I would like to add new bookmarks to Bookmark Manager
 
 ```
 
+## User Story 4
+
+```
+As a user that changes their mind
+So that I can get rid of old bookmarks
+I would like to delete bookmarks in the Bookmark Manager
+```
+
 #### Database Set Up
 
 1. Connect to `psql` and create `bookmark_manager` and `bookmark_manager_test` databases:

@@ -13,6 +13,11 @@ class BookmarkManager < Sinatra::Base
     erb(:bookmarks)
   end
 
+  delete '/bookmarks' do
+    Bookmarks.delete(title: params[:title])
+    redirect '/bookmarks'
+  end
+
   get '/bookmarks/new' do
 
     erb(:"bookmarks/new")
