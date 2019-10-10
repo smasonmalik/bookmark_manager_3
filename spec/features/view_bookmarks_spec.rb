@@ -6,8 +6,8 @@ feature 'Viewing bookmarks' do
 
     visit '/bookmarks'
 
-    expect(page).to have_link('BBC Sport', href: 'www.bbc.co.uk/sport')
-    expect(page).to have_link('Miniclip', href: 'www.miniclip.com')
-    expect(page).to have_link('CN', href: 'www.cartoonnetwork.co.uk')
+    expect(page).to have_link('BBC Sport', href: 'https://www.bbc.co.uk/sport')
+    expect(page).to have_link('Miniclip', href: 'https://www.miniclip.com')
+    expect(page).to have_link('CN', href: 'https://www.cartoonnetwork.co.uk')
   end
 end

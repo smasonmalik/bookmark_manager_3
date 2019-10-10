@@ -7,7 +7,7 @@ require 'sinatra/flash'
 class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
-  register Sinatra::Flash 
+  register Sinatra::Flash
 
   get '/' do
     "Bookmark Manager"
@@ -20,12 +20,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    if params['url'] =~ /\A#{URI::regexp(['http', 'https'])}\z/
-      Bookmarks.create(url: params[:url], title: params[:title])
-      redirect '/bookmarks'
-    else
-      flash[:notice] = "Invalid URL"
-    end
+    flash[:notice] = "Invalid URL" unless Bookmarks.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
   end
 
   delete '/bookmarks/:id' do

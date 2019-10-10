@@ -9,9 +9,9 @@ describe Bookmarks do
     it 'should return a list of bookmarks' do
       connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
-      Bookmarks.create(url: 'www.miniclip.com', title: 'Miniclip')
-      Bookmarks.create(url: 'www.cartoonnetwork.co.uk', title: 'CN')
+      bookmark = Bookmarks.create(url: 'https://www.bbc.co.uk/sport', title: 'BBC Sport')
+      Bookmarks.create(url: 'https://www.miniclip.com', title: 'Miniclip')
+      Bookmarks.create(url: 'https://www.cartoonnetwork.co.uk', title: 'CN')
 
       bookmarks = Bookmarks.all
 
@@ -19,26 +19,26 @@ describe Bookmarks do
       expect(bookmarks.first).to be_a Bookmarks
       expect(bookmarks.first.id).to eq bookmark.id
       expect(bookmarks.first.title).to eq 'BBC Sport'
-      expect(bookmarks.first.url).to eq 'www.bbc.co.uk/sport'
+      expect(bookmarks.first.url).to eq 'https://www.bbc.co.uk/sport'
     end
   end
 
   describe '.create' do
     it 'creates a new bookmark' do
-      bookmark = Bookmarks.create(url: 'www.test.com', title: 'Test')
+      bookmark = Bookmarks.create(url: 'https://www.bbc.co.uk/sport', title: 'BBC Sport')
       persisted_data = persisted_data(id: bookmark.id)
 
       expect(bookmark).to be_a Bookmarks
       expect(bookmark.id).to eq persisted_data.first['id']
-      expect(bookmark.title).to eq 'Test'
-      expect(bookmark.url).to eq 'www.test.com'
+      expect(bookmark.title).to eq 'BBC Sport'
+      expect(bookmark.url).to eq 'https://www.bbc.co.uk/sport'
    end
   end
 
   describe '.delete' do
     it 'removes a user specified bookmark' do
 
-      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
+      bookmark = Bookmarks.create(url: 'https://www.bbc.co.uk/sport', title: 'BBC Sport')
 
       Bookmarks.delete(id: bookmark.id)
 
@@ -48,26 +48,26 @@ describe Bookmarks do
 
   describe '.update' do
     it 'updates the bookmark with the new fields' do
-      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
-      update_bmark = Bookmarks.update(id: bookmark.id, url: 'www.sky.com', title: 'Sky')
+      bookmark = Bookmarks.create(url: 'https://www.bbc.co.uk/sport', title: 'BBC Sport')
+      update_bmark = Bookmarks.update(id: bookmark.id, url: 'https://www.skysports.com', title: 'Sky')
 
       expect(update_bmark).to be_a Bookmarks
       expect(update_bmark.id).to eq bookmark.id
       expect(update_bmark.title).to eq 'Sky'
-      expect(update_bmark.url).to eq 'www.sky.com'
+      expect(update_bmark.url).to eq 'https://www.skysports.com'
     end
   end
 
   describe '.find' do
     it 'returns the required bookmark' do
-      bookmark = Bookmarks.create(url: 'www.bbc.co.uk/sport', title: 'BBC Sport')
+      bookmark = Bookmarks.create(url: 'https://www.skysports.com', title: 'BBC Sport')
 
       result = Bookmarks.find(id: bookmark.id)
 
       expect(result).to be_a Bookmarks
       expect(result.id).to eq bookmark.id
       expect(result.title).to eq 'BBC Sport'
-      expect(result.url).to eq 'www.bbc.co.uk/sport'
+      expect(result.url).to eq 'https://www.skysports.com'
     end
   end
 end
