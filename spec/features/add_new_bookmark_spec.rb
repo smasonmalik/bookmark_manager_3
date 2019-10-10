@@ -3,9 +3,9 @@ require 'pg'
 feature 'Add new bookmark' do
   scenario 'User adds a new bookmark to database' do
     visit ('/bookmarks/new')
-    fill_in('url', with: 'www.reddit.com')
-    fill_in('title', with: 'Reddit')
+    fill_in('url', with: 'https://www.bbc.co.uk/news')
+    fill_in('title', with: 'BBC Sport')
     click_button('Submit')
-    expect(page).to have_link('Reddit', href: 'www.reddit.com')
+    expect(page).to have_link('BBC Sport', href: 'https://www.bbc.co.uk/news')
   end
 end
